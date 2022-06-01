@@ -6,3 +6,4 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "component-attach" {
     Name = "${var.COMPONENT}-tgw-attach-${var.ENV}"
   }
 }
+
