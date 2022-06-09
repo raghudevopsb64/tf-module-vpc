@@ -16,3 +16,9 @@ resource "aws_route" "app-vpc-rt-in-default-vpc-rt" {
   destination_cidr_block = aws_vpc.main.cidr_block
   transit_gateway_id     = data.terraform_remote_state.tgw.outputs.TRANSIT_GW
 }
+
+resource "aws_route" "all-component-traffic-to-tgw" {
+  route_table_id         = aws_route_table.route.id
+  destination_cidr_block = "0.0.0.0/0"
+  transit_gateway_id     = data.terraform_remote_state.tgw.outputs.TRANSIT_GW
+}
