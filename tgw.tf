@@ -13,7 +13,7 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "component-attach" {
 resource "aws_ec2_transit_gateway_route_table" "app-vpc" {
   transit_gateway_id = data.terraform_remote_state.tgw.outputs.TRANSIT_GW
   tags = {
-    Name = "frontend-vpc"
+    Name = "${var.COMPONENT}-vpc"
   }
 }
 
