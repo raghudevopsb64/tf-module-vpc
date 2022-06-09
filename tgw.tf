@@ -31,6 +31,6 @@ resource "aws_ec2_transit_gateway_route" "route-to-app-vpc" {
 resource "aws_ec2_transit_gateway_route" "route-from-default-vpc-to-component-vpc" {
   destination_cidr_block         = var.VPC_CIDR_BLOCK
   transit_gateway_attachment_id  = aws_ec2_transit_gateway_vpc_attachment.component-attach.id
-  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.app-vpc.id
+  transit_gateway_route_table_id = data.terraform_remote_state.tgw.outputs.DEFAULT_VPC_TRANSIT_GW_ROUTE_TABLE
 }
 
