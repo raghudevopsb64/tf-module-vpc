@@ -7,3 +7,7 @@ data "terraform_remote_state" "tgw" {
   }
 }
 
+data "aws_route53_zone" "internal" {
+  name         = "roboshop.internal"
+  private_zone = true
+}
