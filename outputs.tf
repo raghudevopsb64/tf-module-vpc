@@ -14,3 +14,7 @@ output "SUBNET_CIDR" {
   value = aws_subnet.main.*.cidr_block
 }
 
+output "PRIVATE_HOSTED_ZONE_ID" {
+  value = data.aws_route53_zone.internal.zone_id
+}
+
